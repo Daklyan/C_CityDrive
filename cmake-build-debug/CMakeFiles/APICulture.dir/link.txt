@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/APICulture.dir/main.c.o  -o APICulture  -L/home/daklyan/CLionProjects/APICulture/curl/curl.h  -L/home/daklyan/CLionProjects/APICulture/jsmn/jsmn.h -Wl,-rpath,/home/daklyan/CLionProjects/APICulture/curl/curl.h:/home/daklyan/CLionProjects/APICulture/jsmn/jsmn.h -lcurl -ljsmn 

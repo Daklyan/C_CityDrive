@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/daklyan/CLionProjects/APICulture/jsmn/jsmn.h
+stddef.h
+-
+
+/home/daklyan/CLionProjects/APICulture/main.c
+stdio.h
+-
+stdlib.h
+-
+curl/curl.h
+-
+string.h
+-
+jsmn/jsmn.h
+/home/daklyan/CLionProjects/APICulture/jsmn/jsmn.h
+main.h
+/home/daklyan/CLionProjects/APICulture/main.h
+
+/home/daklyan/CLionProjects/APICulture/main.h
+

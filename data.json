@@ -1,0 +1,640 @@
+{
+  "nhits": 2,
+  "parameters": {
+    "timezone": "UTC",
+    "q": "Paris",
+    "rows": 10,
+    "format": "json",
+    "staged": false
+  },
+  "datasets": [
+    {
+      "datasetid": "images-du-palais-royal-",
+      "metas": {
+        "publisher": "Minist\u00e8re de la Culture",
+        "domain": "culture",
+        "license": "Licence Ouverte (Etalab)",
+        "description": "<p>Images et notices texte concernant le Palais-Royal (Paris 01).&nbsp;</p><p>La s\u00e9rie est issue de la base M\u00e9moire.</p><p><a href=\"http://www.mediatheque-patrimoine.culture.gouv.fr/\">En savoir plus sur la M\u00e9diath\u00e8que de l'architecture et du Patrimoine...</a></p>",
+        "keyword": [
+          "jardin",
+          "photographie"
+        ],
+        "title": "Images du Palais-Royal ",
+        "records_count": 488,
+        "staged": false,
+        "data_visible": true,
+        "visibility": "domain",
+        "modified": "2016-10-04T10:48:37+00:00",
+        "language": "fr",
+        "theme": "Patrimoine",
+        "responsable": "M\u00e9diath\u00e8que de l'architecture et du patrimoine",
+        "metadata_processed": "2017-10-23T15:41:29+00:00",
+        "data_processed": "2017-10-23T15:41:28+00:00"
+      },
+      "has_records": true,
+      "data_visible": true,
+      "features": [
+        "image"
+      ],
+      "attachments": [],
+      "alternative_exports": [],
+      "fields": [
+        {
+          "description": null,
+          "label": "REF",
+          "type": "text",
+          "name": "ref"
+        },
+        {
+          "description": null,
+          "label": "NUMP",
+          "type": "text",
+          "name": "nump"
+        },
+        {
+          "description": null,
+          "label": "PAYS",
+          "type": "text",
+          "name": "pays"
+        },
+        {
+          "description": null,
+          "label": "REG",
+          "type": "text",
+          "name": "reg"
+        },
+        {
+          "description": null,
+          "label": "DPT",
+          "type": "text",
+          "name": "dpt"
+        },
+        {
+          "description": null,
+          "label": "COM",
+          "type": "text",
+          "name": "com"
+        },
+        {
+          "description": null,
+          "label": "INSEE",
+          "type": "text",
+          "annotations": [
+            {
+              "args": [
+                "-count"
+              ],
+              "name": "facetsort"
+            }
+          ],
+          "name": "insee"
+        },
+        {
+          "description": null,
+          "label": "EDIF",
+          "type": "text",
+          "name": "edif"
+        },
+        {
+          "description": null,
+          "label": "ADRESSE",
+          "type": "text",
+          "name": "adresse"
+        },
+        {
+          "description": null,
+          "label": "LEG",
+          "type": "text",
+          "name": "leg"
+        },
+        {
+          "description": null,
+          "label": "OBJ",
+          "type": "text",
+          "name": "obj"
+        },
+        {
+          "description": null,
+          "label": "LIEUCOR",
+          "type": "text",
+          "name": "lieucor"
+        },
+        {
+          "description": null,
+          "label": "AUTP",
+          "type": "text",
+          "name": "autp"
+        },
+        {
+          "description": null,
+          "label": "AUTOEU",
+          "type": "text",
+          "name": "autoeu"
+        },
+        {
+          "description": null,
+          "label": "SCLE",
+          "type": "text",
+          "name": "scle"
+        },
+        {
+          "description": null,
+          "label": "DATPV",
+          "type": "text",
+          "name": "datpv"
+        },
+        {
+          "description": null,
+          "label": "SERIE",
+          "type": "text",
+          "name": "serie"
+        },
+        {
+          "description": null,
+          "label": "TYPDOC",
+          "type": "text",
+          "name": "typdoc"
+        },
+        {
+          "description": null,
+          "label": "LBASE",
+          "type": "text",
+          "name": "lbase"
+        },
+        {
+          "description": null,
+          "label": "COPY",
+          "type": "text",
+          "name": "copy"
+        },
+        {
+          "description": null,
+          "label": "VIDEO-v",
+          "type": "text",
+          "name": "video_v"
+        },
+        {
+          "description": null,
+          "label": "VIDEO-p",
+          "type": "file",
+          "annotations": [
+            {
+              "args": [
+                "-count"
+              ],
+              "name": "facetsort"
+            },
+            {
+              "name": "has_thumbnails"
+            }
+          ],
+          "name": "video_p"
+        }
+      ]
+    },
+    {
+      "datasetid": "rendez-vous-hip-hop",
+      "metas": {
+        "publisher": "Minist\u00e8re de la Culture",
+        "domain": "culture",
+        "license": "Licence Ouverte v2.0 (Etalab)",
+        "description": "<p>Les Rendez-vous Hip Hop du 26 mai au 2 juin 2018. <a href=\"https://rendezvoushiphop.culturecommunication.gouv.fr/\" target=\"_blank\">Vous souhaitez organiser un \u00e9v\u00e9nement</a>...</p><p style=\"text-align: justify;\">La semaine met \u00e0 l\u2019honneur l\u2019ensemble des disciplines artistiques li\u00e9es au mouvement hip-hop, avec de la danse, du graffiti, du rap, du deejaying et du human beatbox.</p><p style=\"text-align: justify;\">Un appel \u00e0 participation national est lanc\u00e9, permettant \u00e0 tous les porteurs d\u2019initiatives hip-hop et issues des cultures urbaines d\u2019inscrire leurs projets dans l\u2019agenda du site afin d\u2019int\u00e9grer sa programmation. </p><p style=\"text-align: justify;\">Un grand \u00e9v\u00e9nement de cl\u00f4ture sera propos\u00e9 le samedi 2 juin, en entr\u00e9e libre, simultan\u00e9ment \u00e0 Lille, Marseille, Nantes, N\u00eemes et Paris.</p><p style=\"text-align: justify;\">Ces cinq initiatives r\u00e9uniront des artistes fran\u00e7ais et internationaux de tous les arts du hip-hop (graffiti, danse, musique) avec une programmation associant talents \u00e9mergents et grandes figures du mouvement.</p><p style=\"text-align: justify;\">Rendez-vous Hip Hop a pour vocation de valoriser l\u2019expression urbaine partout en France et de r\u00e9unir tous les publics lors d\u2019une grande f\u00eate populaire.</p><p style=\"text-align: justify;\">Rendez-vous Hip Hop est un projet soutenu par le minist\u00e8re de la Culture et le minist\u00e8re de l'Education Nationale, initi\u00e9 par Hip Hop Citoyens (Paris) avec le concours de Da Storm (N\u00eemes), Flow (Lille), l\u2019Affranchi (Marseille) ainsi que Pick Up Production (Nantes), cinq acteurs majeurs du hip-hop en France.</p><p style=\"text-align: justify;\">L'agenda est mis \u00e0 jour quotidiennement (\u00e0 2h30).</p>",
+        "keyword": [
+          "\u00e9v\u00e9nement",
+          "hip hop"
+        ],
+        "title": "Rendez-vous Hip Hop 2018",
+        "records_count": 223,
+        "staged": false,
+        "data_visible": true,
+        "visibility": "domain",
+        "modified": "2018-06-02T13:37:48+00:00",
+        "language": "fr",
+        "theme": [
+          "Spectacle vivant",
+          "Arts plastiques"
+        ],
+        "responsable": "Minist\u00e8re de la Culture et minist\u00e8re de l'Education nationale",
+        "metadata_processed": "2018-10-16T10:06:40+00:00",
+        "data_processed": "2018-10-16T10:06:40+00:00"
+      },
+      "has_records": true,
+      "data_visible": true,
+      "features": [
+        "geo",
+        "calendar",
+        "analyze",
+        "timeserie"
+      ],
+      "attachments": [],
+      "alternative_exports": [],
+      "fields": [
+        {
+          "description": null,
+          "label": "Identifiant",
+          "type": "int",
+          "name": "identifiant"
+        },
+        {
+          "description": null,
+          "label": "Titre - FR",
+          "type": "text",
+          "name": "titre_fr"
+        },
+        {
+          "description": null,
+          "label": "Description - FR",
+          "type": "text",
+          "name": "description_fr"
+        },
+        {
+          "description": null,
+          "label": "Description longue - FR",
+          "type": "text",
+          "name": "description_longue_fr"
+        },
+        {
+          "description": null,
+          "label": "D\u00e9tail des conditions - FR",
+          "type": "text",
+          "name": "detail_des_conditions_fr"
+        },
+        {
+          "description": null,
+          "label": "Description longue - HTML - FR",
+          "type": "text",
+          "name": "description_longue_html_fr"
+        },
+        {
+          "description": null,
+          "label": "Mots cl\u00e9s - FR",
+          "type": "text",
+          "name": "mots_cles_fr"
+        },
+        {
+          "description": null,
+          "label": "Derni\u00e8re mise \u00e0 jour",
+          "type": "datetime",
+          "name": "derniere_mise_a_jour"
+        },
+        {
+          "description": null,
+          "label": "R\u00e9sum\u00e9 horaires - FR",
+          "type": "text",
+          "name": "resume_horaires_fr"
+        },
+        {
+          "description": null,
+          "label": "R\u00e9sum\u00e9 horaires - EN",
+          "type": "text",
+          "annotations": [
+            {
+              "args": [
+                "-count"
+              ],
+              "name": "facetsort"
+            }
+          ],
+          "name": "resume_horaires_en"
+        },
+        {
+          "description": null,
+          "label": "Horaires d\u00e9taill\u00e9s - FR",
+          "type": "text",
+          "name": "horaires_detailles_fr"
+        },
+        {
+          "description": null,
+          "label": "Horaires ISO",
+          "type": "text",
+          "name": "horaires_iso"
+        },
+        {
+          "description": null,
+          "label": "Premi\u00e8re date",
+          "type": "date",
+          "name": "premiere_date"
+        },
+        {
+          "description": null,
+          "label": "Premi\u00e8re ouverture",
+          "type": "datetime",
+          "name": "premiere_ouverture"
+        },
+        {
+          "description": null,
+          "label": "Premi\u00e8re fermeture",
+          "type": "datetime",
+          "name": "premiere_fermeture"
+        },
+        {
+          "description": null,
+          "label": "Derni\u00e8re date",
+          "type": "date",
+          "name": "derniere_date"
+        },
+        {
+          "description": null,
+          "label": "Derni\u00e8re ouverture",
+          "type": "datetime",
+          "name": "derniere_ouverture"
+        },
+        {
+          "description": null,
+          "label": "Derni\u00e8re fermeture",
+          "type": "datetime",
+          "name": "derniere_fermeture"
+        },
+        {
+          "description": null,
+          "label": "Cat\u00e9gorie",
+          "type": "text",
+          "name": "categorie"
+        },
+        {
+          "description": null,
+          "label": "Discipline",
+          "type": "text",
+          "name": "discipline"
+        },
+        {
+          "description": null,
+          "label": "Type d'\u00e9v\u00e9nement",
+          "type": "text",
+          "name": "type_d_evenement"
+        },
+        {
+          "description": null,
+          "label": "Condition de participation",
+          "type": "text",
+          "name": "condition_de_participation"
+        },
+        {
+          "description": null,
+          "label": "Public sp\u00e9cifique",
+          "type": "text",
+          "name": "public_specifique"
+        },
+        {
+          "description": null,
+          "label": "Lien d'inscription",
+          "type": "text",
+          "name": "lien_d_inscription"
+        },
+        {
+          "description": null,
+          "label": "Age minimum",
+          "type": "int",
+          "name": "age_minimum"
+        },
+        {
+          "description": null,
+          "label": "Age maximum",
+          "type": "int",
+          "name": "age_maximum"
+        },
+        {
+          "description": null,
+          "label": "En Une",
+          "type": "int",
+          "name": "en_une"
+        },
+        {
+          "description": null,
+          "label": "Contributeur: organisation",
+          "type": "text",
+          "name": "contributeur_organisation"
+        },
+        {
+          "description": null,
+          "label": "Lien",
+          "type": "text",
+          "name": "lien"
+        },
+        {
+          "description": null,
+          "label": "Identifiant du lieu",
+          "type": "int",
+          "name": "identifiant_du_lieu"
+        },
+        {
+          "description": null,
+          "label": "Latitude",
+          "type": "double",
+          "name": "latitude"
+        },
+        {
+          "description": null,
+          "label": "Longitude",
+          "type": "double",
+          "name": "longitude"
+        },
+        {
+          "description": null,
+          "label": "R\u00e9gion",
+          "type": "text",
+          "annotations": [
+            {
+              "name": "facet"
+            },
+            {
+              "args": [
+                "alphanum"
+              ],
+              "name": "facetsort"
+            }
+          ],
+          "name": "region"
+        },
+        {
+          "description": null,
+          "label": "D\u00e9partement",
+          "type": "text",
+          "annotations": [
+            {
+              "name": "facet"
+            },
+            {
+              "args": [
+                "alphanum"
+              ],
+              "name": "facetsort"
+            },
+            {
+              "name": "sortable"
+            }
+          ],
+          "name": "departement"
+        },
+        {
+          "description": null,
+          "label": "Nom du lieu",
+          "type": "text",
+          "name": "nom_du_lieu"
+        },
+        {
+          "description": null,
+          "label": "Adresse",
+          "type": "text",
+          "name": "adresse"
+        },
+        {
+          "description": null,
+          "label": "Ville",
+          "type": "text",
+          "annotations": [
+            {
+              "name": "facet"
+            },
+            {
+              "args": [
+                "alphanum"
+              ],
+              "name": "facetsort"
+            },
+            {
+              "name": "sortable"
+            },
+            {
+              "name": "disjunctive"
+            }
+          ],
+          "name": "ville"
+        },
+        {
+          "description": null,
+          "label": "Code postal",
+          "type": "int",
+          "name": "code_postal"
+        },
+        {
+          "description": null,
+          "label": "Arrondissement",
+          "type": "text",
+          "name": "arrondissement"
+        },
+        {
+          "description": null,
+          "label": "Accessibilit\u00e9 - FR",
+          "type": "text",
+          "annotations": [
+            {
+              "name": "facet"
+            },
+            {
+              "name": "disjunctive"
+            },
+            {
+              "name": "sortable"
+            },
+            {
+              "args": [
+                "|"
+              ],
+              "name": "multivalued"
+            }
+          ],
+          "name": "accessibilite_fr"
+        },
+        {
+          "description": null,
+          "label": "Pays",
+          "type": "text",
+          "name": "pays"
+        },
+        {
+          "description": null,
+          "label": "T\u00e9l\u00e9phone du lieu",
+          "type": "text",
+          "name": "telephone_du_lieu"
+        },
+        {
+          "description": null,
+          "label": "Site web du lieu",
+          "type": "text",
+          "name": "site_web_du_lieu"
+        },
+        {
+          "description": null,
+          "label": "Liens du lieu",
+          "type": "text",
+          "name": "liens_du_lieu"
+        },
+        {
+          "description": null,
+          "label": "Tags du lieu",
+          "type": "text",
+          "name": "tags_du_lieu"
+        },
+        {
+          "description": null,
+          "label": "Description du lieu - FR",
+          "type": "text",
+          "name": "description_du_lieu_fr"
+        },
+        {
+          "description": null,
+          "label": "Acc\u00e8s / Itin\u00e9raire - FR",
+          "type": "text",
+          "name": "acces_itineraire_fr"
+        },
+        {
+          "description": null,
+          "label": "customValues",
+          "type": "text",
+          "name": "customvalues"
+        },
+        {
+          "description": null,
+          "label": "Mots cl\u00e9s",
+          "type": "text",
+          "name": "mots_cles"
+        },
+        {
+          "description": null,
+          "label": "autre_discipline",
+          "type": "text",
+          "name": "autre_discipline"
+        },
+        {
+          "description": null,
+          "label": "autre_type_evenement",
+          "type": "text",
+          "name": "autre_type_evenement"
+        },
+        {
+          "description": null,
+          "label": "geolocalisation",
+          "type": "geo_point_2d",
+          "annotations": [
+            {
+              "args": [
+                "-count"
+              ],
+              "name": "facetsort"
+            }
+          ],
+          "name": "geolocalisation"
+        },
+        {
+          "description": null,
+          "label": "Cr\u00e9dits image",
+          "type": "text",
+          "name": "credits_image"
+        },
+        {
+          "description": null,
+          "label": "Agenda d'origine ( titre )",
+          "type": "text",
+          "name": "agenda_d_origine_titre"
+        },
+        {
+          "description": null,
+          "label": "Agenda d'origine ( uid )",
+          "type": "int",
+          "name": "agenda_d_origine_uid"
+        }
+      ]
+    }
+  ]
+}
