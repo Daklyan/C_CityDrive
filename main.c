@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <curl/curl.h>
 #include <string.h>
-#include "jsmn/jsmn.h"
+#include "cJSON/cJSON.h"
+#include "cJSON/cJSON.c"
 #include "main.h"
 
 #define URL "https://data.culture.gouv.fr/api/datasets/1.0/search/?q=Paris"
@@ -40,11 +41,11 @@ void curlWrite(void) {
 //WIP
 void jsonParser(void) {
     string fileData;
-    jsmn_parser parser;
-    jsmntok_t tokens[400];
-    jsmn_init(&parser);
+    cJSON *dataJson = NULL;
+    cJSON *title = NULL;
+    int i = 0;
+
     FILE *ptr = fopen(PATH, "r");
-    int r;
 
     if (ptr == NULL) {
         fprintf(stderr, "Error, reading file failed");
@@ -53,18 +54,26 @@ void jsonParser(void) {
 
     fileData = reader(ptr);
 
-    r = jsmn_parse(&parser, fileData, strlen(fileData), tokens, 400);
+    dataJson = cJSON_Parse(fileData);
 
-    if (r < 0) {
-        fprintf(stderr, "Error, jmsn_parse() failed");
+    char *errorPtr = cJSON_GetErrorPtr();
+    if (errorPtr != NULL) {
+        fprintf(stderr, "Error: %s:\n", errorPtr);
         exit(0);
     }
-
+    /////////////////////TEST FIELD///////////////////////////
+    title = cJSON_GetObjectItemCaseSensitive(dataJson,"title");
+    for(;i<strlen(fileData);i++){
+        if(cJSON_IsString(title) && (title->valuestring != NULL)){
+            printf("Title : %s\n",title->valuestring);
+        }
+    }
+    ///////////////////////////////////////////////////////////
     free(fileData);
     fclose(ptr);
 }
 
-string reader(FILE *ptr) { //Read a file and put in a char * var
+string reader(FILE *ptr) { //Read a file and put in a char * var, needs a free() after using it
     long size = sizer(ptr);
 
     if (ptr == NULL) {

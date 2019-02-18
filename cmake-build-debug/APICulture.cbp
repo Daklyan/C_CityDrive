@@ -78,7 +78,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/daklyan/CLionProjects/APICulture/jsmn/jsmn.h">
+		<Unit filename="/home/daklyan/CLionProjects/APICulture/cJSON/cJSON.h">
 			<Option target="APICulture"/>
 		</Unit>
 		<Unit filename="/home/daklyan/CLionProjects/APICulture/main.c">
