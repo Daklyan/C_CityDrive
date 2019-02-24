@@ -9,7 +9,7 @@
 #define URL "https://data.culture.gouv.fr/api/datasets/1.0/search/?q=Paris"
 #define PATH "../data.json"
 
-int main() {
+int main(int argc, char **argv[]) {
     curlWrite();
     jsonParser();
     return 0;
@@ -42,8 +42,6 @@ void curlWrite(void) {
 void jsonParser(void) {
     string fileData;
     cJSON *dataJson = NULL;
-    cJSON *title = NULL;
-    int i = 0;
 
     FILE *ptr = fopen(PATH, "r");
 
@@ -56,21 +54,43 @@ void jsonParser(void) {
 
     dataJson = cJSON_Parse(fileData);
 
-    char *errorPtr = cJSON_GetErrorPtr();
+    const char *errorPtr = cJSON_GetErrorPtr();
     if (errorPtr != NULL) {
         fprintf(stderr, "Error: %s:\n", errorPtr);
         exit(0);
     }
     /////////////////////TEST FIELD///////////////////////////
-    title = cJSON_GetObjectItemCaseSensitive(dataJson,"title");
-    for(;i<strlen(fileData);i++){
-        if(cJSON_IsString(title) && (title->valuestring != NULL)){
-            printf("Title : %s\n",title->valuestring);
-        }
-    }
+    parseObject(dataJson);
     ///////////////////////////////////////////////////////////
+    cJSON_Delete(dataJson);
     free(fileData);
     fclose(ptr);
+}
+
+void parseObject(cJSON *object) {
+    {
+        cJSON *title = NULL;
+        cJSON *description = NULL;
+        cJSON *domain = NULL;
+
+        int i = 0;
+        int j = 0;
+
+        cJSON *item = cJSON_GetObjectItem(object, "datasets");
+        for (; i < cJSON_GetArraySize(item); i++) {
+            cJSON *test = cJSON_GetArrayItem(item, i);
+            for (; j < cJSON_GetArraySize(test); j++) {
+                cJSON *subitem = cJSON_GetArrayItem(test, j);
+                title = cJSON_GetObjectItem(subitem, "title");
+                description = cJSON_GetObjectItem(subitem, "description");
+                domain = cJSON_GetObjectItem(subitem, "domain");
+                if (title != NULL) printf("%s\n", title->valuestring);
+                if (description != NULL) printf("%s\n", description->valuestring);
+                if (domain != NULL) printf("%s\n", domain->valuestring);
+            }
+        }
+
+    }
 }
 
 string reader(FILE *ptr) { //Read a file and put in a char * var, needs a free() after using it
@@ -83,6 +103,21 @@ string reader(FILE *ptr) { //Read a file and put in a char * var, needs a free()
     string fileData = malloc(size + 1);
     fread(fileData, size, 1, ptr);
     return fileData;
+}
+
+void doit(string text) {
+    string out = NULL;
+    cJSON *json = NULL;
+
+    json = cJSON_Parse(text);
+    if (!json) {
+        printf("Error before: [%s]\n", cJSON_GetErrorPtr());
+    } else {
+        out = cJSON_Print(json);
+        cJSON_Delete(json);
+        printf("%s\n", out);
+        free(out);
+    }
 }
 
 long sizer(FILE *ptr) { //Get the size of a FILE

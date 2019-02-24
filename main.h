@@ -7,6 +7,8 @@ void curlWrite(void);
 void jsonParser(void);
 string reader(FILE * ptr);
 long sizer(FILE * ptr);
+void doit(string text);
+void parseObject(cJSON * object);
 
 
 
