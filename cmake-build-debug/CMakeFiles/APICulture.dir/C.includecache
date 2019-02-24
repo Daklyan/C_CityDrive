@@ -37,6 +37,8 @@ curl/curl.h
 -
 string.h
 -
+gtk-2.0/gtk/gtk.h
+-
 cJSON/cJSON.h
 /home/daklyan/CLionProjects/APICulture/cJSON/cJSON.h
 cJSON/cJSON.c

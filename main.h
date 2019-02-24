@@ -9,6 +9,8 @@ string reader(FILE * ptr);
 long sizer(FILE * ptr);
 void doit(string text);
 void parseObject(cJSON * object);
+GdkPixbuf *createPixbuf(const gchar * logoname);
+void buttonClicked(void);
 
 
 

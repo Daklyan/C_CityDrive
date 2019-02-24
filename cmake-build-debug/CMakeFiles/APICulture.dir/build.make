@@ -79,6 +79,20 @@ APICulture_EXTERNAL_OBJECTS =
 
 APICulture: CMakeFiles/APICulture.dir/main.c.o
 APICulture: CMakeFiles/APICulture.dir/build.make
+APICulture: /usr/lib/x86_64-linux-gnu/libglib-2.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libgobject-2.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libatk-1.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libgio-2.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libgthread-2.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libcairo.so
+APICulture: /usr/lib/x86_64-linux-gnu/libpango-1.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libpangoxft-1.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so
+APICulture: /usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so
 APICulture: CMakeFiles/APICulture.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/daklyan/CLionProjects/APICulture/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable APICulture"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/APICulture.dir/link.txt --verbose=$(VERBOSE)

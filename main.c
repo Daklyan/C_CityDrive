@@ -1,20 +1,72 @@
+#ifdef WINDOWS
+#include <windows.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <curl/curl.h>
 #include <string.h>
+#include <gtk-2.0/gtk/gtk.h>
 #include "cJSON/cJSON.h"
 #include "cJSON/cJSON.c"
 #include "main.h"
 
 #define URL "https://data.culture.gouv.fr/api/datasets/1.0/search/?q=Paris"
 #define PATH "../data.json"
+#define LOGO "../citydrive.png"
 
 int main(int argc, char **argv[]) {
-    curlWrite();
-    jsonParser();
+    GtkWidget *mainwin;
+    GtkWidget *button;
+    GtkWidget *halign;
+    GdkPixbuf *icon;
+
+    gtk_init(&argc,&argv);
+    mainwin = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(mainwin),"City Drive");
+    gtk_window_set_default_size(GTK_WINDOW(mainwin),800,600);
+    gtk_window_set_position(GTK_WINDOW(mainwin), GTK_WIN_POS_CENTER);
+
+    g_print("test");
+    //jsonParser();
+
+    button = gtk_button_new_with_label("Refresh Informations");
+    gtk_widget_set_tooltip_text(button,"Refresh the informations of the API");
+
+
+    g_signal_connect(G_OBJECT(button), "clicked",
+                     G_CALLBACK(buttonClicked), NULL);
+
+    halign = gtk_alignment_new(0,0,0,0);
+    gtk_container_add(GTK_CONTAINER(halign),button);
+    gtk_container_add(GTK_CONTAINER(mainwin),halign);
+
+    icon = createPixbuf(LOGO);
+    gtk_window_set_icon(GTK_WINDOW(mainwin),icon);
+
+    gtk_widget_show_all(mainwin);
+    g_object_unref(icon);
+    gtk_main();
+//    curlWrite();
+//    jsonParser();
     return 0;
 }
 
+void buttonClicked(void){
+    g_print("click");
+    curlWrite();
+}
+GdkPixbuf *createPixbuf(const gchar * logoname){
+    GdkPixbuf *pixbuf;
+    GError *error = NULL;
+    pixbuf = gdk_pixbuf_new_from_file(logoname, &error);
+
+    if(!pixbuf){
+        fprintf(stderr,"%s\n",error->message);
+        g_error_free(error);
+    }
+    return pixbuf;
+}
 void curlWrite(void) {
     CURL *curl;
     FILE *ptr = fopen(PATH, "w");
@@ -54,7 +106,7 @@ void jsonParser(void) {
 
     dataJson = cJSON_Parse(fileData);
 
-    const char *errorPtr = cJSON_GetErrorPtr();
+    const string errorPtr = cJSON_GetErrorPtr();
     if (errorPtr != NULL) {
         fprintf(stderr, "Error: %s:\n", errorPtr);
         exit(0);
@@ -72,21 +124,33 @@ void parseObject(cJSON *object) {
         cJSON *title = NULL;
         cJSON *description = NULL;
         cJSON *domain = NULL;
+        cJSON *publisher = NULL;
 
         int i = 0;
         int j = 0;
 
-        cJSON *item = cJSON_GetObjectItem(object, "datasets");
+        cJSON *item = cJSON_GetObjectItem(object, "datasets"); //Get in the object datasets in the JSON file
         for (; i < cJSON_GetArraySize(item); i++) {
             cJSON *test = cJSON_GetArrayItem(item, i);
-            for (; j < cJSON_GetArraySize(test); j++) {
+            for (; j < cJSON_GetArraySize(test); j++) { //Seek the informations we need
                 cJSON *subitem = cJSON_GetArrayItem(test, j);
                 title = cJSON_GetObjectItem(subitem, "title");
-                description = cJSON_GetObjectItem(subitem, "description");
+                publisher = cJSON_GetObjectItem(subitem,"publisher");
                 domain = cJSON_GetObjectItem(subitem, "domain");
-                if (title != NULL) printf("%s\n", title->valuestring);
-                if (description != NULL) printf("%s\n", description->valuestring);
-                if (domain != NULL) printf("%s\n", domain->valuestring);
+                description = cJSON_GetObjectItem(subitem, "description");
+                //Verify if null before print
+                if (title != NULL) {
+                    printf("Title : %s\n", title->valuestring);
+                }
+                if (publisher != NULL){
+                    printf("Publisher : %s\n", publisher->valuestring);
+                }
+                if (domain != NULL) {
+                    printf("Domain : %s\n", domain->valuestring);
+                }
+                if (description != NULL) {
+                   printf("Description : %s\n", description->valuestring);
+                }
             }
         }
 

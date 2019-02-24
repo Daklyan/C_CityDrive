@@ -10,6 +10,15 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "/usr/include/freetype2"
+  "/usr/include/glib-2.0"
+  "/usr/lib/x86_64-linux-gnu/glib-2.0/include"
+  "/usr/include/atk-1.0"
+  "/usr/include/gdk-pixbuf-2.0"
+  "/usr/include/cairo"
+  "/usr/include/pango-1.0"
+  "/usr/include/gtk-2.0"
+  "/usr/lib/x86_64-linux-gnu/gtk-2.0/include"
   )
 
 # Targets to which this target links.
