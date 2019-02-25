@@ -1,4 +1,7 @@
-#ifdef WINDOWS
+#ifdef _WIN64
+#include <windows.h>
+#endif
+#ifdef _WIN32
 #include <windows.h>
 #endif
 
@@ -15,58 +18,59 @@
 #define PATH "../data.json"
 #define LOGO "../citydrive.png"
 
+const GtkWidget *mainwin;
+
 int main(int argc, char **argv[]) {
-    GtkWidget *mainwin;
     GtkWidget *button;
     GtkWidget *halign;
     GdkPixbuf *icon;
 
-    gtk_init(&argc,&argv);
+    gtk_init(&argc, &argv);
     mainwin = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_title(GTK_WINDOW(mainwin),"City Drive");
-    gtk_window_set_default_size(GTK_WINDOW(mainwin),800,600);
+    gtk_window_set_title(GTK_WINDOW(mainwin), "City Drive");
+    gtk_window_set_default_size(GTK_WINDOW(mainwin), 800, 600);
     gtk_window_set_position(GTK_WINDOW(mainwin), GTK_WIN_POS_CENTER);
 
-    g_print("test");
-    //jsonParser();
+    jsonParser();
 
     button = gtk_button_new_with_label("Refresh Informations");
-    gtk_widget_set_tooltip_text(button,"Refresh the informations of the API");
+    gtk_widget_set_tooltip_text(button, "Refresh the informations of the API");
 
 
     g_signal_connect(G_OBJECT(button), "clicked",
                      G_CALLBACK(buttonClicked), NULL);
 
-    halign = gtk_alignment_new(0,0,0,0);
-    gtk_container_add(GTK_CONTAINER(halign),button);
-    gtk_container_add(GTK_CONTAINER(mainwin),halign);
+    halign = gtk_alignment_new(0, 0, 0, 0);
+    gtk_container_add(GTK_CONTAINER(halign), button);
+    gtk_container_add(GTK_CONTAINER(mainwin), halign);
 
     icon = createPixbuf(LOGO);
-    gtk_window_set_icon(GTK_WINDOW(mainwin),icon);
+    gtk_window_set_icon(GTK_WINDOW(mainwin), icon);
 
     gtk_widget_show_all(mainwin);
     g_object_unref(icon);
     gtk_main();
-//    curlWrite();
-//    jsonParser();
+    jsonParser();
     return 0;
 }
 
-void buttonClicked(void){
+void buttonClicked(void) {
     g_print("click");
     curlWrite();
 }
-GdkPixbuf *createPixbuf(const gchar * logoname){
+
+GdkPixbuf *createPixbuf(const gchar *logoname) {
     GdkPixbuf *pixbuf;
     GError *error = NULL;
     pixbuf = gdk_pixbuf_new_from_file(logoname, &error);
 
-    if(!pixbuf){
-        fprintf(stderr,"%s\n",error->message);
+    if (!pixbuf) {
+        fprintf(stderr, "%s\n", error->message);
         g_error_free(error);
     }
     return pixbuf;
 }
+
 void curlWrite(void) {
     CURL *curl;
     FILE *ptr = fopen(PATH, "w");
@@ -120,41 +124,57 @@ void jsonParser(void) {
 }
 
 void parseObject(cJSON *object) {
-    {
-        cJSON *title = NULL;
-        cJSON *description = NULL;
-        cJSON *domain = NULL;
-        cJSON *publisher = NULL;
 
-        int i = 0;
-        int j = 0;
+    cJSON *title = NULL;
+    cJSON *description = NULL;
+    cJSON *domain = NULL;
+    cJSON *publisher = NULL;
+    int i;
+    int j;
 
-        cJSON *item = cJSON_GetObjectItem(object, "datasets"); //Get in the object datasets in the JSON file
-        for (; i < cJSON_GetArraySize(item); i++) {
-            cJSON *test = cJSON_GetArrayItem(item, i);
-            for (; j < cJSON_GetArraySize(test); j++) { //Seek the informations we need
-                cJSON *subitem = cJSON_GetArrayItem(test, j);
-                title = cJSON_GetObjectItem(subitem, "title");
-                publisher = cJSON_GetObjectItem(subitem,"publisher");
-                domain = cJSON_GetObjectItem(subitem, "domain");
-                description = cJSON_GetObjectItem(subitem, "description");
-                //Verify if null before print
-                if (title != NULL) {
-                    printf("Title : %s\n", title->valuestring);
-                }
-                if (publisher != NULL){
-                    printf("Publisher : %s\n", publisher->valuestring);
-                }
-                if (domain != NULL) {
-                    printf("Domain : %s\n", domain->valuestring);
-                }
-                if (description != NULL) {
-                   printf("Description : %s\n", description->valuestring);
-                }
+    cJSON *item = cJSON_GetObjectItem(object, "datasets"); //Get in the object datasets in the JSON file
+    printf("Size: %d\n", cJSON_GetArraySize(item));
+    for (i = 0; i < cJSON_GetArraySize(item); i++) {
+        cJSON *metas = cJSON_GetArrayItem(item, i);
+        for (j = 0; j < cJSON_GetArraySize(metas); j++) { //Seek the informations we need
+            cJSON *subitem = cJSON_GetArrayItem(metas, j);
+            title = cJSON_GetObjectItem(subitem, "title");
+            publisher = cJSON_GetObjectItem(subitem, "publisher");
+            domain = cJSON_GetObjectItem(subitem, "domain");
+            description = cJSON_GetObjectItem(subitem, "description");
+            //Verify if null before print
+            if (title != NULL) {
+                printf("Title : %s\n", title->valuestring);
+                //display(title->valuestring);
+            }
+            if (publisher != NULL) {
+                printf("Publisher : %s\n", publisher->valuestring);
+                //display(publisher->valuestring);
+            }
+            if (domain != NULL) {
+                printf("Domain : %s\n", domain->valuestring);
+                //display(domain->valuestring);
+            }
+            if (description != NULL) {
+                printf("Description : %s\n", description->valuestring);
+                //display(description->valuestring);
             }
         }
-
     }
+}
+
+void display(string text) {
+    gchar *convertText = NULL;
+    GtkWidget *label = NULL;
+    GtkWidget *halignOth = NULL;
+    convertText = g_locale_from_utf8(text, -1, NULL, NULL, NULL);
+    label = gtk_label_new(convertText);
+    g_free(convertText);
+    gtk_label_set_use_markup(GTK_LABEL(label), TRUE);
+    halignOth = gtk_alignment_new(0, 0, 0, 0);
+    gtk_container_add(GTK_CONTAINER(halignOth), label);
+    gtk_container_add(GTK_CONTAINER(mainwin), halignOth);
+    //gtk_container_add(GTK_CONTAINER(mainwin),label);
 }
 
 string reader(FILE *ptr) { //Read a file and put in a char * var, needs a free() after using it

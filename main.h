@@ -11,6 +11,5 @@ void doit(string text);
 void parseObject(cJSON * object);
 GdkPixbuf *createPixbuf(const gchar * logoname);
 void buttonClicked(void);
-
-
+void display(string text);
 
